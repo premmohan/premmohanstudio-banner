@@ -1,384 +1,299 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Prem Mohan Studio — Banner</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
 <style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-  body {
-    background: #0a0a0f;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    font-family: 'Syne', sans-serif;
-  }
+body {
+  background: #0a0a0f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  font-family: 'Syne', sans-serif;
+}
 
-  .banner {
-    position: relative;
-    width: 100%;
-    max-width: 1200px;
-    height: 280px;
-    background: #0d0d18;
-    overflow: hidden;
-    cursor: pointer;
-    border: 1px solid rgba(99, 102, 241, 0.2);
-  }
+/* ✅ FIXED */
+.banner {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  min-height: 240px;
+  height: auto;
+  background: #0d0d18;
+  overflow: hidden;
+  cursor: pointer;
+  border: 1px solid rgba(99, 102, 241, 0.2);
+}
 
-  /* Animated grid background */
-  .grid {
-    position: absolute;
-    inset: 0;
-    background-image:
-      linear-gradient(rgba(99,102,241,0.07) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(99,102,241,0.07) 1px, transparent 1px);
-    background-size: 40px 40px;
-    animation: gridShift 20s linear infinite;
-  }
+/* Grid */
+.grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(99,102,241,0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(99,102,241,0.07) 1px, transparent 1px);
+  background-size: 40px 40px;
+  animation: gridShift 20s linear infinite;
+}
 
-  @keyframes gridShift {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(40px); }
-  }
+@keyframes gridShift {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(40px); }
+}
 
-  /* Glowing orbs */
-  .orb {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(60px);
-    animation: orbFloat 8s ease-in-out infinite;
-  }
+/* Orbs */
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  animation: orbFloat 8s ease-in-out infinite;
+}
 
-  .orb-1 {
-    width: 300px; height: 300px;
-    background: radial-gradient(circle, rgba(99,102,241,0.35) 0%, transparent 70%);
-    top: -100px; left: -50px;
-    animation-delay: 0s;
-  }
+.orb-1 {
+  width: 300px; height: 300px;
+  background: radial-gradient(circle, rgba(99,102,241,0.35), transparent);
+  top: -100px; left: -50px;
+}
 
-  .orb-2 {
-    width: 250px; height: 250px;
-    background: radial-gradient(circle, rgba(139,92,246,0.25) 0%, transparent 70%);
-    top: 50px; right: 100px;
-    animation-delay: -3s;
-  }
+.orb-2 {
+  width: 250px; height: 250px;
+  background: radial-gradient(circle, rgba(139,92,246,0.25), transparent);
+  top: 50px; right: 100px;
+}
 
-  .orb-3 {
-    width: 200px; height: 200px;
-    background: radial-gradient(circle, rgba(6,182,212,0.2) 0%, transparent 70%);
-    bottom: -50px; right: -30px;
-    animation-delay: -6s;
-  }
+.orb-3 {
+  width: 200px; height: 200px;
+  background: radial-gradient(circle, rgba(6,182,212,0.2), transparent);
+  bottom: -50px; right: -30px;
+}
 
-  @keyframes orbFloat {
-    0%, 100% { transform: translateY(0) scale(1); }
-    50% { transform: translateY(-20px) scale(1.05); }
-  }
+@keyframes orbFloat {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
 
-  /* Scan line effect */
-  .scanline {
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, rgba(99,102,241,0.6), transparent);
-    animation: scan 4s ease-in-out infinite;
-    top: 0;
-  }
+/* Scanline */
+.scanline {
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(99,102,241,0.6), transparent);
+  animation: scan 4s ease-in-out infinite;
+}
 
-  @keyframes scan {
-    0% { top: 0; opacity: 0; }
-    10% { opacity: 1; }
-    90% { opacity: 1; }
-    100% { top: 100%; opacity: 0; }
-  }
+@keyframes scan {
+  0% { top: 0; opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
 
-  /* Content */
+/* Content */
+.content {
+  position: relative;
+  z-index: 10;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 60px;
+  gap: 60px;
+}
+
+.left { flex: 1; }
+
+/* Badge */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(99,102,241,0.12);
+  border: 1px solid rgba(99,102,241,0.3);
+  padding: 5px 14px;
+  margin-bottom: 18px;
+}
+
+.badge-dot {
+  width: 6px; height: 6px;
+  background: #6366f1;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%,100% { opacity:1; }
+  50% { opacity:0.5; }
+}
+
+.badge span {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  color: #818cf8;
+}
+
+/* ✅ Responsive title */
+.title {
+  font-size: clamp(28px, 6vw, 52px);
+  font-weight: 800;
+  color: white;
+}
+
+.title-studio {
+  background: linear-gradient(135deg,#6366f1,#8b5cf6,#06b6d4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Tagline */
+.tagline {
+  font-size: 13px;
+  color: #aaa;
+  margin-top: 10px;
+}
+
+/* Right */
+.right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 20px;
+}
+
+.cta-btn {
+  padding: 14px 28px;
+  background: linear-gradient(135deg,#6366f1,#8b5cf6);
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* Tags */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.tag {
+  font-size: 10px;
+  border: 1px solid rgba(148,163,184,0.2);
+  padding: 4px 10px;
+}
+
+/* URL */
+.url-hint {
+  position: absolute;
+  bottom: 10px;
+  left: 60px;
+  font-size: 10px;
+  color: rgba(99,102,241,0.5);
+}
+
+/* Particles */
+.particle {
+  position: absolute;
+  font-size: 9px;
+  color: rgba(99,102,241,0.3);
+  animation: particleFade 6s infinite;
+}
+
+@keyframes particleFade {
+  0%,100% { opacity:0; }
+  50% { opacity:1; transform: translateY(-10px); }
+}
+
+/* ================= MOBILE FIX ================= */
+@media (max-width: 768px) {
+
+  body { padding: 10px; }
+
   .content {
-    position: relative;
-    z-index: 10;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    padding: 0 60px;
-    gap: 60px;
-  }
-
-  .left {
-    flex: 1;
-  }
-
-  /* Label badge */
-  .badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: rgba(99,102,241,0.12);
-    border: 1px solid rgba(99,102,241,0.3);
-    padding: 5px 14px;
-    border-radius: 2px;
-    margin-bottom: 18px;
-  }
-
-  .badge-dot {
-    width: 6px; height: 6px;
-    background: #6366f1;
-    border-radius: 50%;
-    animation: pulse 2s ease-in-out infinite;
-  }
-
-  @keyframes pulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.5; transform: scale(0.8); }
-  }
-
-  .badge span {
-    font-family: 'Space Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.15em;
-    color: #818cf8;
-    text-transform: uppercase;
-  }
-
-  /* Main title */
-  .title {
-    font-size: 52px;
-    font-weight: 800;
-    line-height: 1;
-    letter-spacing: -1px;
-    margin-bottom: 14px;
-  }
-
-  .title-prem { color: #ffffff; }
-  .title-mohan { color: #ffffff; }
-
-  .title-studio {
-    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #06b6d4 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    display: inline-block;
-  }
-
-  /* Tagline */
-  .tagline {
-    font-family: 'Space Mono', monospace;
-    font-size: 13px;
-    color: rgba(148,163,184,0.8);
-    letter-spacing: 0.05em;
-    line-height: 1.6;
-    max-width: 420px;
-  }
-
-  .tagline em {
-    font-style: normal;
-    color: #06b6d4;
-  }
-
-  /* Right side — CTA + tags */
-  .right {
-    display: flex;
     flex-direction: column;
-    align-items: flex-end;
-    gap: 24px;
+    align-items: flex-start;
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .right {
+    width: 100%;
+    align-items: flex-start;
   }
 
   .cta-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    background: linear-gradient(135deg, #6366f1, #8b5cf6);
-    color: #fff;
-    font-family: 'Syne', sans-serif;
-    font-weight: 700;
-    font-size: 14px;
-    letter-spacing: 0.05em;
-    padding: 14px 28px;
-    border: none;
-    text-decoration: none;
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    white-space: nowrap;
+    width: 100%;
+    text-align: center;
   }
 
-  .cta-btn::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, #818cf8, #a78bfa);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-
-  .cta-btn:hover::before { opacity: 1; }
-  .cta-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 30px rgba(99,102,241,0.5);
-  }
-
-  .cta-btn span { position: relative; z-index: 1; }
-
-  .arrow {
-    position: relative;
-    z-index: 1;
-    transition: transform 0.2s ease;
-  }
-  .cta-btn:hover .arrow { transform: translateX(4px); }
-
-  /* Tech tags */
   .tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    justify-content: flex-end;
+    justify-content: flex-start;
   }
 
-  .tag {
-    font-family: 'Space Mono', monospace;
-    font-size: 10px;
-    color: rgba(148,163,184,0.6);
-    border: 1px solid rgba(148,163,184,0.15);
-    padding: 4px 10px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    transition: all 0.2s ease;
-  }
-
-  .tag:hover {
-    color: #6366f1;
-    border-color: rgba(99,102,241,0.4);
-    background: rgba(99,102,241,0.05);
-  }
-
-  /* Corner accent */
-  .corner-tl, .corner-br {
-    position: absolute;
-    width: 20px; height: 20px;
-    z-index: 5;
-  }
-
-  .corner-tl {
-    top: 12px; left: 12px;
-    border-top: 2px solid #6366f1;
-    border-left: 2px solid #6366f1;
-  }
-
-  .corner-br {
-    bottom: 12px; right: 12px;
-    border-bottom: 2px solid #6366f1;
-    border-right: 2px solid #6366f1;
-  }
-
-  /* Floating data particles */
-  .particle {
-    position: absolute;
-    font-family: 'Space Mono', monospace;
-    font-size: 9px;
-    color: rgba(99,102,241,0.2);
-    animation: particleFade 6s ease-in-out infinite;
-    pointer-events: none;
-  }
-
-  @keyframes particleFade {
-    0%, 100% { opacity: 0; transform: translateY(0); }
-    20%, 80% { opacity: 1; }
-    50% { transform: translateY(-15px); }
-  }
-
-  /* Divider line */
-  .divider {
-    position: absolute;
-    left: 0; right: 0;
-    bottom: 0;
-    height: 3px;
-    background: linear-gradient(90deg, transparent, #6366f1, #8b5cf6, #06b6d4, transparent);
-  }
-
-  /* Hover state for whole banner */
-  .banner:hover .orb-1 { filter: blur(50px); }
-  .banner:hover .grid { opacity: 1.5; }
-
-  /* URL hint */
   .url-hint {
-    position: absolute;
-    bottom: 14px;
-    left: 60px;
-    font-family: 'Space Mono', monospace;
-    font-size: 10px;
-    color: rgba(99,102,241,0.5);
-    letter-spacing: 0.1em;
+    left: 20px;
   }
+
+  .particle {
+    display: none;
+  }
+
+  .orb {
+    filter: blur(40px);
+    opacity: 0.6;
+  }
+}
 </style>
 </head>
+
 <body>
 
-<a href="https://premmohanstudio.com" target="_blank" style="text-decoration:none; width:100%; max-width:1200px; display:block;">
-  <div class="banner">
-    <!-- Background layers -->
-    <div class="grid"></div>
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
-    <div class="orb orb-3"></div>
-    <div class="scanline"></div>
+<a href="https://premmohanstudio.com" target="_blank" style="width:100%; display:block;">
+<div class="banner">
 
-    <!-- Corner accents -->
-    <div class="corner-tl"></div>
-    <div class="corner-br"></div>
+  <div class="grid"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+  <div class="scanline"></div>
 
-    <!-- Floating data text -->
-    <div class="particle" style="top:20px;right:220px;animation-delay:0s">model.predict()</div>
-    <div class="particle" style="top:60px;right:300px;animation-delay:2s">accuracy: 98.7%</div>
-    <div class="particle" style="bottom:40px;left:480px;animation-delay:4s">def train():</div>
-    <div class="particle" style="top:30px;left:420px;animation-delay:1s">torch.nn</div>
-    <div class="particle" style="bottom:55px;right:230px;animation-delay:3s">loss → 0.003</div>
+  <div class="particle" style="top:20px;right:200px;">model.predict()</div>
+  <div class="particle" style="top:60px;right:260px;">accuracy: 98.7%</div>
 
-    <!-- Main content -->
-    <div class="content">
-      <div class="left">
-        <div class="badge">
-          <div class="badge-dot"></div>
-          <span>Now Live — Explore Projects</span>
-        </div>
+  <div class="content">
+    <div class="left">
+      <div class="badge"><div class="badge-dot"></div><span>Now Live — Explore Projects</span></div>
 
-        <div class="title">
-          <span class="title-prem">PREM </span><span class="title-mohan">MOHAN </span><br>
-          <span class="title-studio">STUDIO</span>
-        </div>
-
-        <div class="tagline">
-          Where <em>intelligence</em> meets craft —<br>
-          AI/ML apps, tools & experiments built for the real world.
-        </div>
+      <div class="title">
+        PREM MOHAN<br>
+        <span class="title-studio">STUDIO</span>
       </div>
 
-      <div class="right">
-        <div class="cta-btn">
-          <span>Visit Studio</span>
-          <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-            <path d="M5 12h14M12 5l7 7-7 7"/>
-          </svg>
-        </div>
-
-        <div class="tags">
-          <div class="tag">AI / ML</div>
-          <div class="tag">Computer Vision</div>
-          <div class="tag">NLP</div>
-          <div class="tag">Mobile Apps</div>
-          <div class="tag">RAG</div>
-        </div>
+      <div class="tagline">
+        Where intelligence meets craft —<br>
+        AI/ML apps, tools & experiments built for the real world.
       </div>
     </div>
 
-    <!-- URL hint -->
-    <div class="url-hint">premmohanstudio.com →</div>
+    <div class="right">
+      <div class="cta-btn">Visit Studio</div>
 
-    <!-- Bottom gradient line -->
-    <div class="divider"></div>
+      <div class="tags">
+        <div class="tag">AI / ML</div>
+        <div class="tag">NLP</div>
+        <div class="tag">Apps</div>
+      </div>
+    </div>
   </div>
+
+  <div class="url-hint">premmohanstudio.com →</div>
+
+</div>
 </a>
 
 </body>
